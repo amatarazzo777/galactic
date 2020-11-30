@@ -1,0 +1,10 @@
+prefix=/home/anthony/source/skia
+exec_prefix=${prefix}
+includedir=${prefix}
+libdir=${exec_prefix}/out/Shared
+
+Name: skia package file
+Description: The skia library by goggle
+Version: 1.89.0
+Libs: -L${libdir} -lskia
+Cflags: -I${includedir}
