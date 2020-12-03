@@ -133,7 +133,7 @@ void parameter_data_svg_t::load_svg() {
 						object_bounds);
 				svg_dom->render(object_record_canvas);
 				auto ptr=object_recorder.finishRecordingAsPicture();
-				svg_picture_objects.push_back(ptr);
+				svg_picture_objects.push_back(std::move(ptr));
 
 			} else {
 				std::stringstream sserror;
@@ -168,7 +168,7 @@ void parameter_data_svg_t::render_svg(SkCanvas *canvas) {
  * @param id
  */
 void parameter_data_svg_t::render_svg(SkCanvas *canvas, const u_int8_t id) {
-	std::size_t solid_id= static_cast<std::size_t>(id-1);
+	//std::size_t solid_id= static_cast<std::size_t>(id-1);
 	//if (solid_id < svg_picture_objects.size())
 		//svg_picture_objects[solid_id]->playback(canvas);
 

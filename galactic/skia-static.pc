@@ -1,0 +1,11 @@
+prefix=/home/anthony/source/skia
+exec_prefix=${prefix}
+includedir=${prefix}
+libdir=${exec_prefix}/out/Static
+
+Name: skia package file
+Description: The skia library by goggle
+Version: 1.89.0
+Libs: -L${libdir} -lskia -lcompression_utils_portable -ldng_sdk -limgui -lmicrohttpd -lparticles -lpathkit -lpiex -lsdl -lsfntly -lskia -lskottie -lskparagraph -lskresources -lsksg -lskshaper -lspvtools -lspvtools_opt -lspvtools_val 
+Libs.private: 
+Cflags: -I${includedir}

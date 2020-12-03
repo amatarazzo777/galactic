@@ -54,7 +54,7 @@ void SkSVGGradient::collectColorStops(const SkSVGRenderContext& ctx,
 SkColor SkSVGGradient::resolveStopColor(const SkSVGRenderContext& ctx,
                                         const SkSVGStop& stop) const {
     const SkSVGStopColor& stopColor = stop.stopColor();
-    SkColor color;
+    SkColor color={};
     switch (stopColor.type()) {
         case SkSVGStopColor::Type::kColor:
             color = stopColor.color();

@@ -1,15 +1,20 @@
 project('galactic space', 'c', 'cpp',
     default_options : ['c_std=c17', 'cpp_std=c++17'], 
     version :'1.0.0')
-    
+      
    
 cpp = meson.get_compiler('cpp')
 dl_dep = cpp.find_library('dl', required : true)
 glfw_dep = cpp.find_library('glfw', required : true)
 stdcpp_dep = cpp.find_library('stdc++', required : true)
 expat_dep = dependency('expat')
-skia_dep = dependency('skia')
-thread_dep = dependency('threads') 
+thread_dep = dependency('threads')
+
+skia_static = dependency('skia-static',static : true)
+
+turbo_jpeg_static = dependency('turbojpeg-static', static : true)
+
+
 
 inc = include_directories('inc','sksvg/include')
 
@@ -61,7 +66,13 @@ sksvg_source_files = ['sksvg/SkSVGAttribute.cpp',
   
 executable('galactic', 
 		[source_files,sksvg_source_files] , 
-		dependencies : [skia_dep, dl_dep, glfw_dep, stdcpp_dep, expat_dep, thread_dep], 
+		dependencies : [dl_dep, 
+			skia_static , 
+			glfw_dep, 
+			stdcpp_dep, 
+			expat_dep, 
+			thread_dep,
+			turbo_jpeg_static], 
 		include_directories : inc,
 		install : true)
 
